@@ -397,9 +397,9 @@ Node *sortList(Node *head)
 }
 //*****************************************************************/
 
-long long int mergeHelper(Node *h1, Node *h2 ,Node **list)
+long long int mergeHelper(Node *h1, Node *h2 ,Node **head)
 {
-    Node *tail = nullptr;
+    Node *list = nullptr, *tail = nullptr;
 
     // printList(h1);
     // cout << endl;
@@ -412,9 +412,9 @@ long long int mergeHelper(Node *h1, Node *h2 ,Node **list)
         if (h1->data < h2->data)
         {
             Node *t = new Node(h1->data);
-            if ((*list) == nullptr)
+            if ((list) == nullptr)
             {
-                (*list) = tail = t;
+                (list) = tail = t;
             }
             else
             {
@@ -462,7 +462,7 @@ long long int mergeHelper(Node *h1, Node *h2 ,Node **list)
         h2 = h2->next;
         j++;
     }
-
+    *head = list;
     return ans;
 }
 
