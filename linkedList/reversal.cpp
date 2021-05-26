@@ -74,7 +74,7 @@ Node<int> *reverseListIterative(Node<int> *head)
 
 Node<int> *getListAfterReverseOperation(Node<int> *head, int n, int b[])
 {
-    int visitedNode<int> = 0;
+    // int visitedNode<int> = 0;
     Node<int> *front = nullptr;
     Node<int> *temp = head;
     for (int i = 0; i < n; ++i)
@@ -104,7 +104,7 @@ Node<int> *getListAfterReverseOperation(Node<int> *head, int n, int b[])
             prev = temp;
             temp = cur;
         }
-        visitedNode<int> += count;
+        // visitedNode<int> += count;
         if (front != nullptr)
         {
             front->next = prev;
@@ -275,7 +275,7 @@ Node<int> *addTwoLists(Node<int> *first, Node<int> *second)
             sum = sum % 10;
             carry = 1;
         }
-        Node<int> *temp = new Node(sum);
+        Node<int> *temp = new Node<int>(sum);
         if (ans == nullptr)
         {
             ans = tail = temp;
@@ -295,7 +295,7 @@ Node<int> *addTwoLists(Node<int> *first, Node<int> *second)
             sum = sum % 10;
             carry = 1;
         }
-        Node<int> *temp = new Node(sum);
+        Node<int> *temp = new Node<int>(sum);
         if (ans == nullptr)
         {
             ans = tail = temp;
@@ -316,7 +316,7 @@ Node<int> *addTwoLists(Node<int> *first, Node<int> *second)
             sum = sum % 10;
             carry = 1;
         }
-        Node<int> *temp = new Node(sum);
+        Node<int> *temp = new Node<int>(sum);
         if (ans == nullptr)
         {
             ans = tail = temp;
@@ -341,18 +341,18 @@ Node<int> *addTwoLists(Node<int> *first, Node<int> *second)
 
 //*****************************************************************/
 
-Node *getListAfterDeleteOperation(Node *head)
+Node<int> *getListAfterDeleteOperation(Node<int> *head)
 {
     //	Write your code here
     if (head == nullptr || head->next == nullptr)
     {
         return head;
     }
-    Node *temp = head;
+    Node<int> *temp = head;
     int mx = head->data;
     while (temp->next != nullptr)
     {
-        int z = temp->next - data;
+        int z = temp->next->data;
         if (temp->next->data >= mx)
         {
             temp = temp->next;
