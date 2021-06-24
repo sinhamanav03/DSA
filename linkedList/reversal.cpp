@@ -221,7 +221,6 @@ Node<int> *removeDuplicates(Node<int> *head)
     }
 
     f = vector<bool>(maxV + 1, 0);
-
     cur = head;
     while (cur != nullptr && cur->data >= 0)
     {

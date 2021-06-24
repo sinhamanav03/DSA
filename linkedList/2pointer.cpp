@@ -327,18 +327,43 @@ LinkedListNode<int> *removeKthNode(LinkedListNode<int> *head, int k)
 }
 //****************************************************************/
 
-void detect(Node *head)
+bool detectAndRemoveCycle(Node *head)
 {
-    //Write your code here and no need to print the linked list
-    unordered_set<Node *> s;
-    Node *prev = nullptr, *cur = head;
-
-    while(cur!=nullptr && s.find(cur)==s.end()){
-        s.insert(cur);
-        prev = cur;
-        cur = cur->next;
+    // Write your code here
+    if (head == NULL || head->next == NULL)
+    {
+        return false;
     }
-    prev->next = nullptr;
+
+    Node *slow = head, *fast = head;
+    do
+    {
+        if (fast == nullptr || fast->next == nullptr)
+        {
+            return false;
+        }
+        slow = slow->next;
+        fast = fast->next->next;
+    } while (slow != fast);
+
+    slow = head;
+    if (slow == fast)
+    {
+        while (fast->next != slow)
+        {
+            fast = fast->next;
+        }
+    }
+    else
+    {
+        while (slow->next != fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next;
+        }
+    }
+    fast->next = NULL;
+    return true;
 }
 //****************************************************************/
 //****************************************************************/
